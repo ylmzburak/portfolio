@@ -1,6 +1,7 @@
 export const de = {
   meta: {
     skipToContent: "Zum Inhalt springen",
+    continueToSite: "Weiter zur Website",
   },
   nav: {
     label: "Hauptnavigation",

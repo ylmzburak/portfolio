@@ -3,6 +3,7 @@ import type { Dictionary } from "./de";
 export const en: Dictionary = {
   meta: {
     skipToContent: "Skip to content",
+    continueToSite: "Continue to website",
   },
   nav: {
     label: "Main navigation",
