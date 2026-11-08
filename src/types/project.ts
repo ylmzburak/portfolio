@@ -13,6 +13,8 @@ export type Project = {
   problem: Localized;
   solution: Localized;
   role: Localized;
+  /** Technical details as bullet points, shown on the detail page. */
+  highlights: Localized<string[]>;
   tech: string[];
   images: Image[];
   video?: ProjectVideo;
