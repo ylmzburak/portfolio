@@ -1,6 +1,20 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { getAlternates } from "@/i18n/alternates";
 import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
+
+export async function generateMetadata({
+  params,
+}: Pick<PageProps<"/[lang]">, "params">): Promise<Metadata> {
+  const { lang } = await params;
+
+  if (!isLocale(lang)) {
+    notFound();
+  }
+
+  return { alternates: getAlternates(lang) };
+}
 
 export default async function Page({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;

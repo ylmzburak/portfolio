@@ -2,6 +2,8 @@ export const de = {
   meta: {
     skipToContent: "Zum Inhalt springen",
     continueToSite: "Weiter zur Website",
+    description:
+      "Portfolio und Lebenslauf – Projekte, Berufserfahrung und Kenntnisse.",
   },
   nav: {
     label: "Hauptnavigation",
