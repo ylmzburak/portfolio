@@ -1,4 +1,4 @@
-import type { YearMonth } from "./common";
+import type { DateValue } from "./common";
 import type { Localized } from "./localized";
 
 /** One entry in a timeline: a job or a degree. */
@@ -7,11 +7,10 @@ export type TimelineEntry = {
   title: Localized;
   organization: string;
   location?: Localized;
-  start: YearMonth;
+  start: DateValue;
   /** Omit for an ongoing entry. */
-  end?: YearMonth;
-  highlights: Localized<string[]>;
+  end?: DateValue;
+  highlights?: Localized<string[]>;
+  /** Technologies used, shown as tags. */
+  tech?: string[];
 };
-
-export type Experience = TimelineEntry;
-export type Education = TimelineEntry;

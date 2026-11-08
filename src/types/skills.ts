@@ -9,5 +9,5 @@ export type SkillGroup = {
 export type SpokenLanguage = {
   name: Localized;
   /** CEFR level or "native", e.g. { de: "C1", en: "C1" } */
-  level: Localized;
+  level?: Localized;
 };

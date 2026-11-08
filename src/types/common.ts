@@ -17,6 +17,11 @@ type Month =
 /** A date with month precision, e.g. "2024-03". */
 export type YearMonth = `${number}-${Month}`;
 
+type Year = `${number}`;
+
+/** A year ("2025") or a year with month ("2025-03"). */
+export type DateValue = Year | YearMonth;
+
 /** An image with fixed dimensions (prevents layout shift) and localized alt text. */
 export type Image = {
   src: string;
