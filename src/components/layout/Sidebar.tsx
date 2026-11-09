@@ -15,7 +15,7 @@ export function Sidebar({ lang }: SidebarProps) {
   return (
     <div className="flex flex-col gap-8 lg:h-full">
       <header>
-        <p className="text-3xl font-bold tracking-tight lg:text-4xl">
+        <p className="hidden text-3xl font-bold tracking-tight lg:block lg:text-4xl">
           {profile.name}
         </p>
         <p className="mt-2 text-lg font-medium">{profile.title[lang]}</p>
