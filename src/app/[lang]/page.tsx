@@ -6,6 +6,7 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import { Section } from "@/components/layout/Section";
 import { profile } from "@/data/profile";
 import { sectionIds } from "@/lib/sections";
+import { sectionComponents } from "@/features/section-components";
 
 export async function generateMetadata({
   params,
@@ -33,9 +34,15 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
       <h1 className="sr-only">
         {profile.name} – {profile.title[lang]}
       </h1>
-      {sectionIds.map((id) => (
-        <Section key={id} id={id} title={dictionary.sections[id]} />
-      ))}
+      {sectionIds.map((id) => {
+        const Content = sectionComponents[id];
+
+        return (
+          <Section key={id} id={id} title={dictionary.sections[id]}>
+            <Content lang={lang} />
+          </Section>
+        );
+      })}
     </>
   );
 }
