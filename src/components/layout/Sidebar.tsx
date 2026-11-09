@@ -3,6 +3,7 @@ import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { sectionIds } from "@/lib/sections";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { ThemeToggle } from "./ThemeToggle";
 
 type SidebarProps = {
   lang: Locale;
@@ -38,6 +39,7 @@ export function Sidebar({ lang }: SidebarProps) {
 
       <div className="flex items-center gap-4">
         <LanguageSwitcher lang={lang} label={dictionary.language.switch} />
+        <ThemeToggle label={dictionary.theme.toggle} />
       </div>
 
       <div className="flex flex-col gap-6 lg:mt-auto">

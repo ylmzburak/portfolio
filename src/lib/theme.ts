@@ -12,3 +12,9 @@ export const themeInitScript = `(() => {
     }
   } catch {}
 })();`;
+
+export function isTheme(value: unknown): value is Theme {
+  return (
+    typeof value === "string" && (themes as readonly string[]).includes(value)
+  );
+}

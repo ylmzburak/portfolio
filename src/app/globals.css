@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+/* `dark:` = saved dark theme, or no saved theme and a dark system preference */
+@custom-variant dark {
+  &:where([data-theme="dark"], [data-theme="dark"] *) {
+    @slot;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    &:where(:root:not([data-theme]), :root:not([data-theme]) *) {
+      @slot;
+    }
+  }
+}
+
 @theme {
   /* Remove Tailwind's default palette: only our tokens are allowed */
   --color-*: initial;
