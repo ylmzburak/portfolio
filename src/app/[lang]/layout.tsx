@@ -6,6 +6,7 @@ import { themeInitScript } from "@/lib/theme";
 import { isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import "../globals.css";
+import { Sidebar } from "@/components/layout/Sidebar";
 
 export const dynamicParams = false;
 
@@ -59,7 +60,7 @@ export default async function RootLayout({
         </a>
         <div className="mx-auto max-w-screen-xl px-6 lg:flex lg:gap-16 lg:px-12">
           <aside className="pt-12 lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-80 lg:shrink-0 lg:flex-col lg:py-24">
-            {/* Sidebar content comes in the next step */}
+            <Sidebar lang={lang} />
           </aside>
           <main id="content" className="lg:flex-1 lg:py-12">
             {children}
