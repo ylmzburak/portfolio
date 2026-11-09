@@ -2,7 +2,7 @@ import type { ComponentType } from "react";
 import type { Locale } from "@/i18n/config";
 import type { SectionId } from "@/lib/sections";
 import { About } from "./about/About";
-
+import { Projects } from "./projects/Projects";
 export type SectionContentProps = {
   lang: Locale;
 };
@@ -18,7 +18,7 @@ export const sectionComponents: Record<
   ComponentType<SectionContentProps>
 > = {
   about: About,
-  projects: ComingSoon,
+  projects: Projects,
   experience: ComingSoon,
   skills: ComingSoon,
   education: ComingSoon,
