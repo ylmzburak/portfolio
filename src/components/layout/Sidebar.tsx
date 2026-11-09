@@ -4,6 +4,7 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import { sectionIds } from "@/lib/sections";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { ThemeToggle } from "./ThemeToggle";
+import Image from "next/image";
 
 type SidebarProps = {
   lang: Locale;
@@ -15,6 +16,14 @@ export function Sidebar({ lang }: SidebarProps) {
   return (
     <div className="flex flex-col gap-8 lg:h-full">
       <header>
+        <Image
+          src={profile.photo.src}
+          width={profile.photo.width}
+          height={profile.photo.height}
+          alt={profile.photo.alt[lang]}
+          loading="eager"
+          className="mb-6 size-28 rounded-full object-cover lg:size-40"
+        />
         <p className="hidden text-3xl font-bold tracking-tight lg:block lg:text-4xl">
           {profile.name}
         </p>

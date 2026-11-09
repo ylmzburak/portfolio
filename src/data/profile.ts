@@ -34,8 +34,8 @@ export const profile: Profile = {
   },
   photo: {
     src: "/media/profile.webp",
-    width: 400,
-    height: 400,
+    width: 480,
+    height: 480,
     alt: {
       de: "Porträtfoto von Burak Yilmaz",
       en: "Portrait photo of Burak Yilmaz",
