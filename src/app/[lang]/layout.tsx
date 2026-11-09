@@ -6,6 +6,10 @@ import { themeInitScript } from "@/lib/theme";
 import { isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import "../globals.css";
+import { Sidebar } from "@/components/layout/Sidebar";
+import { MobileNav } from "@/components/layout/MobileNav";
+import { profile } from "@/data/profile";
+import { sectionIds } from "@/lib/sections";
 
 export const dynamicParams = false;
 
@@ -39,6 +43,8 @@ export default async function RootLayout({
     notFound();
   }
 
+  const dictionary = getDictionary(lang);
+
   return (
     <html
       lang={lang}
@@ -48,7 +54,35 @@ export default async function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body>
+        <a
+          href="#content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded focus:bg-primary focus:px-4 focus:py-2 focus:text-on-primary"
+        >
+          {dictionary.meta.skipToContent}
+        </a>
+        <MobileNav
+          lang={lang}
+          name={profile.name}
+          items={sectionIds.map((id) => ({
+            id,
+            label: dictionary.sections[id],
+          }))}
+          labels={{
+            nav: dictionary.nav.label,
+            open: dictionary.nav.openMenu,
+            close: dictionary.nav.closeMenu,
+          }}
+        />
+        <div className="mx-auto max-w-screen-xl px-6 lg:flex lg:gap-16 lg:px-12">
+          <aside className="pt-12 lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-80 lg:shrink-0 lg:flex-col lg:py-24">
+            <Sidebar lang={lang} />
+          </aside>
+          <main id="content" className="lg:flex-1 lg:py-12">
+            {children}
+          </main>
+        </div>
+      </body>
     </html>
   );
 }
